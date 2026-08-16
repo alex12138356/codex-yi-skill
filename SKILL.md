@@ -1,9 +1,21 @@
 ---
 name: codex-yi-memory-system
-description: 为用户搭建多线 Codex 协作系统（共享知识库、中枢调度、回传日志、SESSION_LOG 续传），解决对话 400 截断丢上下文和每个新对话都要重新教背景的问题。当用户说"配置多线协作""搭 Codex 工作流""解决 400 截断""AI 记不住我""新对话总是失忆"时使用。EN: Set up a multi-thread Codex collaboration system with a shared knowledge base, hub dispatcher, report-back log and SESSION_LOG continuation, to survive the 400-message cutoff and stop re-teaching every new conversation.
+description: >
+  为用户搭建多线 Codex 协作系统（共享知识库、中枢调度、回传日志、SESSION_LOG 续传），
+  解决对话 400 截断丢上下文、每个新对话都要重新教背景、多项目挤在一个对话里互相干扰的问题。
+  当用户说"配置多线协作""搭 Codex 工作流""解决 400 截断""AI 记不住我""新对话总是失忆"
+  "老是重复自我介绍""多项目怎么组织"时使用。
+  DO NOT trigger for: 配置 DeepSeek/其他 provider 的上下文窗口参数（那是 fix-deepseek-context 的事）；
+  通用 Codex 使用问题；与文件系统记忆无关的请求。
+compatibility: Works in Codex CLI and any terminal-based coding agent that can read/write files.
+metadata:
+  author: alex12138356
+  version: "1.1"
+  homepage: https://codex-yi.com
+  source: https://github.com/alex12138356/codex-yi-skill
 ---
 
-# Codex 壹 · 多线记忆系统
+# Codex 壹 · 多线记忆系统（Codex Yi Memory System）
 
 ## 何时使用
 
@@ -33,4 +45,5 @@ description: 为用户搭建多线 Codex 协作系统（共享知识库、中枢
 - 红线必须原样写入共享知识库，不允许改写或遗漏
 - 不要替用户编造背景；缺失项保留占位符并提醒用户填写
 - SESSION_LOG 放项目目录；共享知识库放桌面；不要弄反
+- 生成的文件必须用真实换行，不要输出字面 \n
 
